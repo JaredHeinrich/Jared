@@ -93,3 +93,5 @@ alias cl="clear"
 
 export LS_COLORS='di=01;34:ln=01;36:so=01;35:pi=00;33'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+[ -f "/home/Jared/.ghcup/env" ] && . "/home/Jared/.ghcup/env" # ghcup-env
