@@ -89,7 +89,6 @@ return {
                 hls = {},
                 pylsp = {},
                 gopls = {},
-                r_language_server = {},
                 ltex = {
                     settings = {
                         ltex = {
