@@ -87,6 +87,17 @@ return {
             local servers = {
                 rust_analyzer = {},
                 hls = {},
+                pylsp = {},
+                gopls = {},
+                r_language_server = {},
+                ltex = {
+                    settings = {
+                        ltex = {
+                            language = "de-DE",
+                        },
+                    },
+                },
+                texlab = {},
                 lua_ls = {
                     settings = {
                         Lua = {

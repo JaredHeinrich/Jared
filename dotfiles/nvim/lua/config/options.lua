@@ -1,6 +1,5 @@
--- disable netrw at the very start of your init.lua
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
@@ -47,3 +46,4 @@ vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.scrolloff = 10
 -- keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+vim.cmd("syntax off")
