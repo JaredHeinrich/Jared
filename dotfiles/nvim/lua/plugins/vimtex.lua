@@ -15,5 +15,5 @@ return {{
         vim.api.nvim_set_keymap('n', '<leader>li', '<cmd>VimtexInfo<CR>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', '<leader>lv', '<cmd>VimtexView<CR>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', '<leader>ls', '<cmd>VimtexStop<CR>', {noremap = true, silent = true})
-        end
+    end
     }}

@@ -1,5 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
+    lazy = false,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
         options = {
@@ -15,7 +16,7 @@ return {
             always_divide_middle = true,
             globalstatus = false,
             refresh = {
-                statusline = 1000,
+                statusline = 50,
                 tabline = 1000,
                 winbar = 1000,
             }

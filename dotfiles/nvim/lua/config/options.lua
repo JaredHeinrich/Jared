@@ -46,4 +46,3 @@ vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.scrolloff = 10
 -- keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
-vim.cmd("syntax off")
