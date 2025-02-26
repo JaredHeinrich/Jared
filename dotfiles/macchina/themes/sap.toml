@@ -1,0 +1,32 @@
+spacing         = 3
+hide_ascii      = false
+key_color       = "#7067CF"
+separator = "»"
+
+[keys]
+host            = "Host"
+kernel          = "Kernel"
+os              = "OS"
+terminal        = "Terminal"
+shell           = "Shell"
+packages        = "Packages"
+uptime          = "Uptime"
+memory          = "Memory"
+machine         = "Machine"
+resolution      = "Resolution"
+cpu_load        = "CPU Load"
+cpu             = "CPU"
+disk_space      = "Disk Space"
+
+[box]
+visible         = true
+
+[palette]
+type = "Light"
+glyph           = "●"
+spacing         = 2
+visible         = true
+
+[custom_ascii]
+color = ""
+path = "~/.config/macchina/ascii/sap.ascii"

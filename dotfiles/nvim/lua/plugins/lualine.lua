@@ -23,11 +23,11 @@ return {
         },
         sections = {
             lualine_a = {'buffers'},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
+            lualine_b = {'diff', 'diagnostics'},
             lualine_c = {''},
-            lualine_x = {'encoding', 'filetype'},
+            lualine_x = {''},
             lualine_y = {'progress', 'location'},
-            lualine_z = {'mode'}
+            lualine_z = {''}
         },
         inactive_sections = {
             lualine_a = {},

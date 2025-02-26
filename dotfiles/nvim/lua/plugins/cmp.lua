@@ -65,7 +65,11 @@ return{
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'path' },
-                { name = 'buffer' },
+                { name = 'buffer',
+                    option = {
+                        keyword_pattern = [[\k\+]],
+                    }
+                },
             },
             formatting = {
                 expandable_indicator = false,

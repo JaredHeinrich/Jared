@@ -7,7 +7,7 @@ return {
         configs.setup({
             ignore_install = {},
             modules = {},
-            ensure_installed = {'lua', 'rust', 'haskell', 'markdown'},
+            ensure_installed = {'lua', 'rust', 'haskell', 'markdown', 'go'},
             sync_install = false,
             auto_install = false,
             highlight = {

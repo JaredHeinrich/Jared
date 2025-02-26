@@ -86,6 +86,9 @@ return {
 
             local servers = {
                 rust_analyzer = {},
+                clangd = {},
+                r_language_server = {},
+                dockerls = {},
                 hls = {},
                 pylsp = {},
                 gopls = {},
@@ -97,6 +100,12 @@ return {
                     },
                 },
                 texlab = {},
+                tinymist = {
+                    single_file_support = true,
+                    settings = {
+                        exportPdf = "onSave",
+                    },
+                },
                 lua_ls = {
                     settings = {
                         Lua = {

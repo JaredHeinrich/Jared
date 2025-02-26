@@ -8,6 +8,7 @@ return {
         defaults = {
             file_ignore_patterns = {
                 "target/",
+                "CMakeFiles/",
                 "node_modules/",
                 "%.log",
                 "%.fls",

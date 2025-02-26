@@ -1,0 +1,38 @@
+spacing         = 3
+hide_ascii      = true
+prefer_small_ascii = true
+key_color       = "#7067CF"
+separator       = ">>"
+
+[keys]
+host            = "Host"
+kernel          = "Kernel"
+os              = "OS"
+terminal        = "Terminal"
+shell           = "Shell"
+packages        = "Packages"
+uptime          = "Uptime"
+memory          = "Memory"
+machine         = "Machine"
+resolution      = "Resolution"
+cpu_load        = "CPU Load"
+cpu             = "CPU"
+disk_space      = "Disk Space"
+
+[box]
+border          = "rounded"
+visible         = true
+
+[palette]
+glyph           = "●"
+spacing         = 2
+visible         = true
+
+[bar]
+glyph           = "●"
+hide_delimiters = true
+visible         = false
+
+[box.inner_margin]
+x=1
+y=1
