@@ -1,0 +1,7 @@
+[user]
+	name = Jared Heinrich
+	email = jared.heinrich04@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
