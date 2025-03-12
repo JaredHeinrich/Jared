@@ -85,7 +85,13 @@ return {
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
             local servers = {
-                rust_analyzer = {},
+                rust_analyzer = {
+                    on_attach = function(client, bufnr)
+                        if client.server_capabilities.documentFormattingProvider then
+                            vim.api.nvim_buf_set_keymap(bufnr, "n", "=", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+                        end
+                    end,
+                },
                 clangd = {},
                 r_language_server = {},
                 dockerls = {},
