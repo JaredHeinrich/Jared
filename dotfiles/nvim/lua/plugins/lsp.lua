@@ -13,7 +13,6 @@ return {
         'neovim/nvim-lspconfig',
         dependencies = {
             { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
             'hrsh7th/cmp-nvim-lsp',
         },
@@ -84,64 +83,95 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            local servers = {
-                rust_analyzer = {
-                    on_attach = function(client, bufnr)
-                        if client.server_capabilities.documentFormattingProvider then
-                            vim.api.nvim_buf_set_keymap(bufnr, "n", "=", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-                        end
-                    end,
-                },
-                clangd = {},
-                r_language_server = {},
-                dockerls = {},
-                hls = {},
-                pylsp = {},
-                gopls = {},
-                ltex = {
-                    settings = {
-                        ltex = {
-                            language = "de-DE",
-                        },
-                    },
-                },
-                texlab = {},
-                tinymist = {
-                    single_file_support = true,
-                    settings = {
-                        exportPdf = "onSave",
-                    },
-                },
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = 'Replace',
-                            },
-                        },
-                    },
-                },
-            }
 
-            require('mason').setup()
-
-            -- You can add other tools here that you want Mason to install
-            -- for you, so that they are available from within Neovim.
-            local ensure_installed = vim.tbl_keys(servers or {})
-            vim.list_extend(ensure_installed, {
+            local mason_installs = {
+                'rust-analyzer',
+                'clangd',
+                'r-languageserver',
+                'dockerfile-language-server',
+                'python-lsp-server',
+                'gopls',
+                'ltex-ls',
+                'texlab',
+                'tinymist',
+                'lua-language-server',
                 'stylua',
-            })
-            require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-            require('mason-lspconfig').setup {
-                handlers = {
-                    function(server_name)
-                        local server = servers[server_name] or {}
-                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-                        require('lspconfig')[server_name].setup(server)
-                    end,
-                },
             }
+            require('mason').setup()
+            require('mason-tool-installer').setup { ensure_installed = mason_installs }
+
+            vim.lsp.enable('rust_analyzer')
+            vim.lsp.config('rust_analyzer', {
+                on_attach = function(client, bufnr)
+                    if client.server_capabilities.documentFormattingProvider then
+                        vim.api.nvim_buf_set_keymap(bufnr, "n", "=", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+                    end
+                end,
+            })
+
+            vim.lsp.enable('dartls')
+            vim.lsp.config('dartls', {
+                cmd = { "dart", "language-server", "--protocol=lsp" },
+                filetypes = { "dart" },
+                init_options = {
+                    closingLabels = true,
+                    outline = true,
+                    flutterOutline = true
+                }
+            })
+
+            vim.lsp.enable('clangd')
+            vim.lsp.config('clangd', {})
+
+            vim.lsp.enable('r_language_server')
+            vim.lsp.config('r_language_server', {})
+
+            vim.lsp.enable('dockerls')
+            vim.lsp.config('dockerls', {})
+
+            vim.lsp.enable('hls')
+            vim.lsp.config('hls', {})
+
+            vim.lsp.enable('pylsp')
+            vim.lsp.config('pylsp', {})
+
+            vim.lsp.enable('pylsp')
+            vim.lsp.config('pylsp', {})
+
+            vim.lsp.enable('golsp')
+            vim.lsp.config('golsp', {})
+
+            vim.lsp.enable('ltex')
+            vim.lsp.config('ltex', {
+                settings = {
+                    ltex = {
+                        language = "de-DE",
+                    },
+                },
+            })
+
+            vim.lsp.enable('texlab')
+            vim.lsp.config('texlab', {})
+
+            vim.lsp.enable('tinymist')
+            vim.lsp.config('tinymist', {
+                single_file_support = true,
+                settings = {
+                    exportPdf = "onSave",
+                },
+            })
+
+
+            vim.lsp.enable('lua_ls')
+            vim.lsp.config('lua_ls', {
+                settings = {
+                    Lua = {
+                        completion = {
+                            callSnippet = 'Replace',
+                        },
+                    },
+                },
+            })
         end,
     },
 }
