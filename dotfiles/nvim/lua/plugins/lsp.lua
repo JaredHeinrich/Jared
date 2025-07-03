@@ -143,6 +143,7 @@ return {
 
             vim.lsp.enable('ltex')
             vim.lsp.config('ltex', {
+                filetypes = {"typst"},
                 settings = {
                     ltex = {
                         language = "de-DE",
