@@ -120,6 +120,9 @@ return {
                 }
             })
 
+            vim.lsp.enable('jdtls')
+            vim.lsp.config('jdtls', {})
+
             vim.lsp.enable('clangd')
             vim.lsp.config('clangd', {})
 
@@ -143,7 +146,7 @@ return {
 
             vim.lsp.enable('ltex')
             vim.lsp.config('ltex', {
-                filetypes = {"typst"},
+                --filetypes = {"typst"},
                 settings = {
                     ltex = {
                         language = "de-DE",
