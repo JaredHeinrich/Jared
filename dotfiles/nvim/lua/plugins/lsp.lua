@@ -8,7 +8,6 @@ return {
             },
         },
     },
-    { 'Bilal2453/luvit-meta', lazy = true },
     {
         'neovim/nvim-lspconfig',
         dependencies = {
@@ -32,16 +31,11 @@ return {
                     map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
                     -- Jump to the implementation of the word under your cursor.
-                    map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
-                    -- Jump to the type of the word under your cursor.
-                    map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-
-                    -- Fuzzy find all the symbols in your current document.
-                    map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-                    -- Fuzzy find all the symbols in your current workspace.
-                    map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+                    map(
+                        'gi',
+                        require('telescope.builtin').lsp_implementations,
+                        '[G]oto [I]mplementation'
+                    )
 
                     -- Rename the variable under your cursor.
                     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')

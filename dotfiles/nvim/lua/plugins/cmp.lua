@@ -41,21 +41,15 @@ return{
             mapping = cmp.mapping.preset.insert {
                 ['<C-j>'] = cmp.mapping.select_next_item(select_opts),
                 ['<C-k>'] = cmp.mapping.select_prev_item(select_opts),
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
                 ['<C-o>'] = cmp.mapping.confirm { select = true },
                 ['<C-Space>'] = cmp.mapping.complete {},
-                ['<C-l>'] = cmp.mapping(function()
+                ['<C-n>'] = cmp.mapping(function()
                     if luasnip.expand_or_locally_jumpable() then
                         luasnip.expand_or_jump()
                     end
                 end, { 'i', 's' }),
-                ['<C-h>'] = cmp.mapping(function()
-                    if luasnip.locally_jumpable(-1) then
-                        luasnip.jump(-1)
-                    end
-                end, { 'i', 's' }),
-
             },
             sources = {
                 {
@@ -73,15 +67,8 @@ return{
             },
             formatting = {
                 expandable_indicator = false,
-                fields = {'menu', 'abbr', 'kind'},
+                fields = {'abbr', 'kind'},
                 format = function(entry, item)
-                    local menu_icon = {
-                        nvim_lsp = 'λ',
-                        luasnip = '⋗',
-                        buffer = 'Ω',
-                        path = '',
-                    }
-                    item.menu = menu_icon[entry.source.name]
                     return item
                 end,
             },
