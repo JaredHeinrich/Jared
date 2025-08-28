@@ -1,7 +1,7 @@
-return {{
-        "lervag/vimtex",
-        lazy = false,
-        init = function()
+return {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
         vim.g.vimtex_quickfix_mode = 0
         vim.g.vimtex_syntax_enabled = 1
         vim.g.vimtex_format_enabled = 1
@@ -16,4 +16,4 @@ return {{
         vim.api.nvim_set_keymap('n', '<leader>lv', '<cmd>VimtexView<CR>', {noremap = true, silent = true})
         vim.api.nvim_set_keymap('n', '<leader>ls', '<cmd>VimtexStop<CR>', {noremap = true, silent = true})
     end
-    }}
+}
