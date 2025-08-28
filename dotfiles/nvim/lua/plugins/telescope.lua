@@ -2,7 +2,7 @@ return {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        -- 'nvim-telescope/telescope-ui-select.nvim',
+        'nvim-telescope/telescope-ui-select.nvim',
         {'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font }
     },
 
@@ -10,7 +10,7 @@ return {
         local telescope = require('telescope')
         local builtin = require('telescope.builtin')
         local actions = require('telescope.actions')
-        -- require("telescope").load_extension("ui-select")
+        require("telescope").load_extension("ui-select")
 
         telescope.setup({
             defaults = {
@@ -55,6 +55,12 @@ return {
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
         vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+        vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+
+        vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = '[G]oto [D]efinition' })
+        vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = '[G]oto [R]eferences' })
+        vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 
         vim.keymap.set('n', '<leader>fs', function()
             builtin.lsp_document_symbols(telescope_bottom_window)
@@ -69,8 +75,6 @@ return {
         end, { desc = '[/] Fuzzily search in current buffer' })
 
 
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
-        vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
         vim.keymap.set('n', '<leader>fn', function()
             builtin.find_files { cwd = vim.fn.stdpath 'config' }
         end, { desc = '[F]ind [N]eovim config files' })

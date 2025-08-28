@@ -61,7 +61,8 @@ local highlights = {
 
     TelescopeNormal = { bg = colors.darkGray },
     TelescopeBorder = { bg = colors.darkGray, fg = colors.darkGray },
-    
+    MiniPickNormal = { bg = colors.darkGray },
+
     LazyNormal = { bg = colors.darkGray },
 
     Identifier = { fg = colors.yellow },
