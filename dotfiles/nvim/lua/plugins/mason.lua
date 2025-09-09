@@ -14,7 +14,6 @@ return {
         },
         opts = {
             ensure_installed = {
-                'rust-analyzer',
                 'clangd',
                 'ltex-ls',
                 'texlab',

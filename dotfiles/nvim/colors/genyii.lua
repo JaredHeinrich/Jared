@@ -37,7 +37,6 @@ local highlights = {
     VertSplit = { bg = colors.undefined },
     StatusLine = { bg = colors.darkGray, fg = colors.normal_text },
     StatusLineNC = { bg = colors.darkGray, fg = colors.normal_text },
-    EndOfBuffer = { bg = colors.background },
     LineNr = { fg = colors.normal_text },
     CursorLine = { bg = colors.darkGray },
     CursorLineNr = { fg = colors.orange },
@@ -59,11 +58,14 @@ local highlights = {
     Boolean = { fg = colors.lightPurple },
     Number = { fg = colors.lightRed },
 
+    NormalFloat = { bg = colors.darkGray },
+    NormalSB = { bg = colors.darkGray },
     TelescopeNormal = { bg = colors.darkGray },
     TelescopeBorder = { bg = colors.darkGray, fg = colors.darkGray },
+    MasonNormal = { bg = colors.darkGray },
     MiniPickNormal = { bg = colors.darkGray },
 
-    LazyNormal = { bg = colors.darkGray },
+    Pmenu = { bg = colors.darkGray },
 
     Identifier = { fg = colors.yellow },
     Statement = { fg = colors.undefined },
